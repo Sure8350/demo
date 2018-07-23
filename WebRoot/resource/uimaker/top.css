@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+/***
+ * uimaker
+ * http://www.uimaker.com
+ * e-mail: admin@uimaker.com
+ */
+*{font-size:9pt;border:0;margin:0;padding:0;}
+body{font-family:'微软雅黑'; margin:0 auto;min-width:980px;}
+ul{display:block;margin:0;padding:0;list-style:none;}
+li{display:block;margin:0;padding:0;list-style: none;}
+img{border:0;}
+dl,dt,dd,span{margin:0;padding:0;display:block;}
+a,a:focus{text-decoration:none;color:#000;outline:none;blr:expression(this.onFocus=this.blur());}
+a:hover{color:#00a4ac;text-decoration:none;}
+table{border-collapse:collapse;border-spacing: 0;}
+cite{font-style:normal;}
+h2{font-weight:normal;}
+
+
+/*top.html*/
+.header{height:88px;}
+.topleft{height:50px;float:left; width:300px;}
+.topleft img{margin-top:12px;margin-left:10px;}
+.topright{height:50px;float:right;}
+.nav{float:left;}
+.nav li{float:left;width:87px;height:88px; text-align:center;}
+.nav li a{display:block;width:87px;height:88px;-moz-transition: none; transition: background-color 0.3s linear; -moz-transition: background-color 0.3s linear; -webkit-transition: background-color 0.3s linear; -o-transition: background-color 0.3s linear; }
+.nav li a.selected{background:url(images/navbg.png) no-repeat;}
+.nav li a:hover{display:block;background:#000;color:#000000;background: none repeat scroll 0% 0% rgb(43, 127, 181);}
+.nav li img{margin-top:10px;}
+.nav li a{display:block;}
+.nav a h2{font-size:14px;color:#000000;}
+.nav a:hover h2{color:#000000;}
+.topright ul{padding-top:15px; float:right; padding-right:12px;}
+.topright ul li{float:left; padding-left:9px; padding-right:9px; background:url(images/line.gif) no-repeat right;}
+.topright ul li:last-child{background:none;}
+.topright ul li a{font-size:13px; color:#000000;}
+.topright ul li a:hover{color:#000000;}
+.topright ul li span{margin-top:2px;float:left;padding-right:3px;}
+.user{height:30px;background:url(images/ub1.png) repeat-x;clear:both;margin-top:10px;float:right; margin-right:12px;border-radius:30px; behavior:url(script/pie.htc); white-space:nowrap;position:relative;}
+.user span{display:inline-block;padding-right:10px; background:url(images/user.png) no-repeat 15px 10px; line-height:30px; font-size:14px;color:#000000; padding-left:20px; padding-left:35px;}
+.user b{display:inline-block;width:20px;height:18px; background:url(images/msg.png);text-align:center; font-weight:normal; color:#000000;font-size:14px;margin-right:13px; margin-top:7px; line-height:18px;}
+.user i{display:inline-block;margin-right:5px;font-style:normal;line-height:30px; font-size:14px;color:#000000;}

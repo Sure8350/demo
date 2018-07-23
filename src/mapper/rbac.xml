@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.rbac">
+	<select id="findFunctionByUser" parameterType="java.util.Map"
+		resultType="java.util.Map">
+		SELECT DISTINCT f.* FROM
+		user u ,
+		role_user ru ,
+		role_function rf ,
+		function f
+		WHERE
+		u.user_id = ru.user_id AND
+		ru.role_id = rf.role_id AND
+		rf.function_id = f.function_id AND
+		u.username = #{username} AND
+		f.module_id = #{module_id}
+	</select>
+
+	<select id="findModuleByUser" parameterType="java.util.Map"
+		resultType="java.util.Map">
+		SELECT DISTINCT m.* FROM
+		user u ,
+		role_user ru ,
+		role_function rf ,
+		function f ,
+		module m
+		WHERE
+		u.user_id = ru.user_id AND
+		ru.role_id = rf.role_id AND
+		rf.function_id=f.function_id AND
+		f.module_id = m.module_id AND
+		u.username = #{username}
+	</select>
+
+</mapper>

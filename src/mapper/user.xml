@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.user">
+	<select id="findByUsername" parameterType="java.util.Map" resultType="java.util.Map">
+		select * from user where username = #{username}
+	</select>
+
+	<insert id="save" parameterType="com.ys.entity.User">
+		INSERT INTO
+		user	(
+				username,
+				password,
+				name,
+				salt)
+		VALUES	(
+				#{username},
+				#{password},
+				#{name},
+				#{salt})
+		<selectKey keyProperty="userId" keyColumn="id" resultType="Integer">
+			SELECT LAST_INSERT_ID() AS id
+		</selectKey>
+	</insert>
+	
+	<select id="findById" parameterType="Integer" resultType="com.ys.entity.User">
+				SELECT 
+					user_id as userId,
+					username,
+					password,  
+					name,  
+					salt
+				FROM user 
+				WHERE user_id = #{value}
+	</select>
+	
+	<update id="update" parameterType="com.ys.entity.User">
+		UPDATE	user
+		SET
+			username = #{username},
+			password = #{password},
+			name = #{name},
+			salt = #{salt}
+		WHERE	user_id = #{userId}
+	</update>
+	
+</mapper>

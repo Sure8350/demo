@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.ordering">
+
+	<!-- 血泪教训，为什么要把表明定义为sql关键字order啊！！！ -->
+	<insert id="save" parameterType="com.ys.entity.Ordering">
+		INSERT INTO
+		ordering (
+				goods_id,
+				goodsname,
+				price,
+				number,
+				total,
+				history_id)
+		VALUES	(
+				#{goodsId},
+				#{goodsName},
+				#{price},
+				#{number},
+				#{total},
+				#{historyId})
+	</insert>
+	
+	<select id="findOrderingByHistoryId" parameterType="Integer" resultType="java.util.Map">
+				SELECT
+					order_id as orderId,
+					goods_id as goodsId,
+					history_id as historyId,
+					goodsname,
+					price,
+					number,
+					total
+				FROM ordering 
+				WHERE history_id = #{historyId}
+	</select>
+	
+</mapper>

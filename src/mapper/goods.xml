@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.goods">
+	<insert id="save" parameterType="com.ys.entity.Goods">
+		INSERT INTO
+		goods	(
+				goodsname,
+				amount,
+				goods_photo_file,
+				type,
+				price)
+		VALUES	(
+				#{goodsName},
+				#{amount},
+				#{goodsPhotoFile},
+				#{type},
+				#{price})
+				
+<!-- 		<selectKey keyProperty="userId" keyColumn="id" resultType="Integer">
+			SELECT LAST_INSERT_ID() AS id
+		</selectKey> -->
+		
+	</insert>
+	
+	<select id="findByGoodsName" parameterType="java.util.Map" resultType="com.ys.entity.Goods">
+		select * from goods where goodsname = #{goodsName}
+	</select>
+	
+	<select id="findByType" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT g.* FROM goods g, type t WHERE g.type = t.typename AND t.type_id = #{type_id}
+	</select>
+	
+	<select id="findByGoodsId" parameterType="java.util.Map" resultType="com.ys.entity.Goods">
+				SELECT 
+					goods_id as goodsId,
+					goodsname as goodsName,
+					amount,
+					goods_photo_file as goodsPhotoFile,
+					price,
+					type
+				FROM goods 
+				WHERE goods_id = #{goods_id}
+	</select>
+	
+	<update id="update" parameterType="com.ys.entity.Goods">
+		UPDATE	goods
+		SET
+			goodsname = #{goodsName},
+			amount = #{amount},
+			goods_photo_file = #{goodsPhotoFile},
+			price = #{price},
+			type = #{type}
+		WHERE	goods_id = #{goodsId}
+	</update>
+</mapper>

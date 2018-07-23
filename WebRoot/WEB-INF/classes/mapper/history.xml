@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.history">
+	<select id="findAll" parameterType="java.util.Map" resultType="java.util.Map">
+		select * from history
+	</select>
+
+	<insert id="save" parameterType="com.ys.entity.History">
+		INSERT INTO
+		history	(
+				date,
+				address,
+				phone,
+				all_total,
+				user_id)
+		VALUES	(
+				#{date},
+				#{address},
+				#{phone},
+				#{allTotal},
+				#{userId})
+		<selectKey keyProperty="historyId" keyColumn="id" resultType="Integer">
+			SELECT LAST_INSERT_ID() AS id
+		</selectKey>
+	</insert>
+	
+	<select id="findByHistoryId" parameterType="Integer" resultType="com.ys.entity.History">
+				SELECT 
+					history_id as historyId,  
+					date,
+					address,
+					phone,
+					all_total,
+					user_id as userId
+				FROM history 
+				WHERE history_id = #{historyId}
+	</select>
+	
+	<select id="findByUserId" parameterType="Integer" resultType="java.util.Map">
+				SELECT 
+					history_id as historyId,  
+					date,
+					address,
+					phone,
+					all_total,
+					user_id as userId
+				FROM history 
+				WHERE user_id = #{userId}
+	</select>
+	
+</mapper>
