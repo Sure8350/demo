@@ -41,7 +41,7 @@ public class SecurityFilter implements Filter{
 			}
 		}
 		if(obj == null){
-			request.setAttribute("errmsg", "用户未登录或会话超时,请重新登录");
+			request.setAttribute("errmessage", "用户未登录或会话超时,请重新登录");
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}else{
 			//将请求按源路径送到controller
