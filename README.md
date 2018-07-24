@@ -1,7 +1,8 @@
 # demo
 ------
 	利用Springmvc+mybatic+mysql+eclipse做了一个简单的商城购物demo，适合新手训练。
-	运行demo.sql，并且更改配置中的数据库地址，图片存储在F盘，没有F盘的话就在GoodsController中更改
+	运行demo.sql，并且更改配置中的数据库地址。
+	赋值upload_goods的图片到F盘，没有F盘的话就在GoodsController中更改
 	登录密码都是123456
 	实现功能有以下:
 ------
@@ -28,7 +29,7 @@
 	下拉框获取后台mysql的信息显示，
 	刷新页面重新获取商品信息展示
 	上传图片，存储在F:/upload_goods/XXX指定目录和名字，mysql信息也刷新
-	存储在本地磁盘，其他功能模块用到图片也在这里取出来，这点我设计的有问题，之后想办法改掉
+	图片存储在本地磁盘，其他功能模块用到图片也在这里取出来，这点我设计的有问题，之后想办法改掉
 ```
 ------
 ![](https://github.com/Sure8350/demo/raw/master/manage.gif)
