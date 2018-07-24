@@ -1,6 +1,6 @@
 # demo
 ------
-	利用Springmvc+mybatic+mysql+eclipse做了一个简单的商城购物demo，适合新手训练。
+	利用Springmvc+mybatic+mysql+eclipse+easyui做了一个简单的商城购物demo，适合新手训练。
 	运行demo.sql，并且更改配置中的数据库地址。
 	赋值upload_goods的图片到F盘，没有F盘的话就在GoodsController中更改
 	登录密码都是123456
